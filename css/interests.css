@@ -1,0 +1,74 @@
+#page > main {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-content: start;
+    gap: 1rem;
+}
+
+#page > main > section {
+    margin: 0;
+}
+
+#introduction,
+#video_games {
+    grid-column: 1 / -1; /*elementul incepe pe prima linie si se termina la ultima*/
+}
+
+#game_list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /*creeaza doua coloare egale pentru jocuri*/
+    gap: 0.8rem; /*distanta dintre coloane*/
+    padding-left: 1.5rem;
+}
+
+#game_list li {
+    min-height: 5rem;
+    padding: 0.65rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.7rem;
+    background: var(--surface);
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    border-radius: 0.5rem;
+}
+
+#game_list li img {
+    width: 3rem;
+    height: 3rem;
+    flex: 0 0 auto;
+    object-fit: contain;
+}
+
+#game_list li:nth-of-type(even) { /*face ca culoarea borderului de pe poziti impare sa se schimbe*/
+    border-color: rgba(236, 72, 153, 0.55);
+}
+
+#video_games aside {
+    margin-top: 1rem;
+    padding: 0.7rem 1rem;
+    background: rgba(139, 92, 246, 0.13);
+    border-left: 3px solid var(--pink);
+}
+
+audio {
+    width: min(100%, 30rem);
+    margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 750px) {
+    #page > main {
+        grid-template-columns: 1fr;
+    }
+
+    #introduction,
+    #video_games {
+        grid-column: auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #game_list {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,49 @@
+footer {
+    width: 100%;
+    padding: 1.5rem clamp(1rem, 3vw, 2rem);
+    display: flex;
+    justify-content: center;
+    background: var(--surface);
+    border: 2px solid var(--purple);
+    border-bottom: 0;
+    border-radius: 0.8rem 0.8rem 0 0;
+}
+
+#contact {
+    width: min(100%, 75rem);
+    position: relative;
+    padding-right: 8rem;
+}
+
+#contact h2 {
+    margin-top: 0;
+}
+
+#contact ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+#contact li {
+    margin: 0.25rem 0;
+}
+
+#fire {
+    width: clamp(4rem, 9vw, 7rem);
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0;
+    border-radius: 0.5rem;
+}
+
+@media screen and (max-width: 500px) {
+    #contact {
+        padding-right: 0;
+        padding-bottom: 5rem;
+    }
+
+    #fire {
+        right: auto;
+        left: 0;
+    }
+}

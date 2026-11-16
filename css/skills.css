@@ -1,0 +1,81 @@
+#page > main > p {
+    grid-column: 1 / -1;
+}
+
+#page > main {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-content: start;
+    gap: 1rem;
+}
+
+#page > main > section {
+    margin: 0;
+}
+
+#p_lang ul,
+#tools_technology ul,
+#area_improve ul {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+    list-style: none;
+}
+
+#p_lang li,
+#tools_technology li,
+#area_improve li {
+    min-height: 4.5rem;
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    background: var(--surface);
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    border-radius: 0.5rem;
+}
+
+#p_lang li img,
+#tools_technology li img {
+    width: 2.7rem;
+    height: 2.7rem;
+    object-fit: contain;
+}
+
+#area_improve {
+    grid-column: 1 / -1;
+}
+
+#area_improve ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+#area_improve li:nth-of-type(odd) {
+    border-color: rgba(236, 72, 153, 0.55);
+}
+
+@media screen and (max-width: 750px) {
+    #page > main {
+        grid-template-columns: 1fr;
+    }
+
+    #page > main > p,
+    #area_improve {
+        grid-column: auto;
+    }
+
+    #area_improve ul {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media screen and (max-width: 420px) {
+    #p_lang ul,
+    #tools_technology ul,
+    #area_improve ul {
+        grid-template-columns: 1fr;
+    }
+}

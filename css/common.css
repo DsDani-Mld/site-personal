@@ -1,0 +1,66 @@
+/*Aspectul general*/
+:root {
+    --bg: #171321;
+    --surface: #282039;
+    --purple: #8B5CF6;
+    --pink: #EC4899;
+    --light-pink: #F5D0FE;
+    --text: #F8F5FC;
+} /*elementul radacina al documentului HTML*/
+
+* {
+    box-sizing: border-box; /*dimensiunile decralare prin width si height includ si padding-ul si border-ul*/
+} 
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    color: var(--light-pink);
+    line-height: 1.25; 
+}
+
+h1 {
+    font-size: clamp(1.5rem, 3vw, 2.5rem); /*alege sizeul in functie de marimea ecranului*/
+}
+
+h2 {
+    font-size: clamp(1.35rem, 2.3vw, 1.9rem);/*alege sizeul in functie de marimea ecranului*/
+}
+
+a {
+    color: var(--pink);
+    text-decoration: none;
+    transition: color 0.2s ease, text-decoration-color 0.35s ease; /*tranzitie pentru hover*/
+}
+
+a:hover, a:focus-visible {
+    color: var(--light-pink);
+    text-decoration: underline;
+}
+
+img, video {
+    max-width: 100%; /*face sa nu depaseasca latimea containerului*/
+    height: auto; /*pastreaza proportiile imaginii cand aceasta este redimensionata*/
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+::selection {
+    color: var(--bg);
+    background: var(--light-pink);
+}

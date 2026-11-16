@@ -1,0 +1,96 @@
+/*Structura principala a siteului
+  Header = titlu
+  Main = continut
+  Footer = informati de contact
+*/
+#page {
+    min-height: 100vh; /*vh = viewprot height, reprezinta 100 din inaltimea ferestrei browserului*/
+    margin-left: 1.25rem; /*Spatiu in stanga pentru a nu intra continutul sub meniul fix*/
+    padding: 1.25rem clamp(1rem, 3vw, 3rem) 0; /*clamp face ca paddingul orizontal sa se adapteze la dimensiunea ecranului*/
+    display: grid; 
+    grid-template-rows: auto 1fr auto; /*header main footer*/
+    gap: 1.5rem;
+}
+
+#page > header {
+    position: relative;
+    min-height: 5.5rem;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--surface);
+    border: 2px solid var(--purple);
+    border-radius: 0.8rem; /*rotunje colturile*/
+    box-shadow: 0 0.4rem 1.5rem rgba(139, 92, 246, 0.12);
+}
+
+#page > header h1 {
+    margin: 0;
+    animation: title-fade 0.9s ease-out both; /*cand se incarca pagina titlul apare cu fade*/
+}
+
+#page > main {
+    width: min(100%, 75rem); /* */
+    margin: 0 auto;
+    padding: clamp(1rem, 3vw, 2rem);
+    background: var(--surface);
+    border: 1px solid rgba(139, 92, 246, 0.55);
+    border-radius: 0.8rem;
+}
+
+#page > main section {
+    margin: 0 0 1.5rem;
+    padding: clamp(1rem, 2.5vw, 1.5rem);
+    background: rgba(23, 19, 33, 0.58);
+    border: 1px solid rgba(245, 208, 254, 0.16);
+    border-left: 0.25rem solid var(--purple);
+    border-radius: 0.65rem;
+}
+
+#page > main section h2,
+#page > main section h3 {
+    margin-top: 0;
+}
+
+#page > header::after {
+    content: ""; 
+    width: 3.5rem;
+    height: 0.2rem;
+    position: absolute; /*pozitionare in raport cu header*/
+    left: 50%; /*de la jumatatea headerului*/
+    bottom: 0.65rem;
+    transform: translateX(-50%); /*il centreaza*/
+    background: var(--pink);
+    border-radius: 1rem;
+    opacity: 0.85;
+}
+
+@keyframes title-fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #page {
+        margin-left: 0;
+        padding: 4.8rem 0.8rem 0;
+        gap: 1rem;
+    }
+
+    #page > header {
+        min-height: 4.5rem;
+        padding: 0.8rem;
+    }
+
+    #page > main {
+        padding: 0.8rem;
+    }
+}
+
+

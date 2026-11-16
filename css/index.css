@@ -1,0 +1,50 @@
+#about {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(12rem, 0.65fr); /*min max e pentru dimensiune minima si flexibila*/
+    align-items: center;
+    column-gap: clamp(1rem, 4vw, 3rem);
+}
+
+#about h2 {
+    grid-column: 1 / -1;
+}
+
+#about p {
+    grid-column: 1;
+}
+
+#prtrait {
+    width: min(100%, 19rem);
+    max-height: 24rem;
+    grid-column: 2; /*poza este pozitionata in a doua coloana*/
+    grid-row: 2 / span 2; /*poate ocupa doua randuri*/
+    justify-self: center; /*centreaza poza in celula grid*/
+    object-fit: cover; /*poza umple zona fara sasi deformeze proportiile*/
+    border: 3px solid var(--purple);
+    border-radius: 1rem; /*rotunje colturile*/
+    box-shadow: 0 0.6rem 1.8rem rgba(236, 72, 153, 0.16);
+    transition: transform 0.4s ease, border-color 0.3s ease 0.05s, box-shadow 0.5s ease;
+}
+
+#prtrait:hover {
+    transform: scale(1.025) rotate(1deg); /*mareste poza daca ii dau hover*/
+    border-color: var(--pink);
+    box-shadow: 0 0.8rem 2rem rgba(236, 72, 153, 0.25);
+}
+
+@media screen and (max-width: 650px) {
+    #about {
+        grid-template-columns: 1fr;
+    }
+
+    #about h2,
+    #about p,
+    #prtrait {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    #prtrait {
+        width: min(75%, 17rem);
+    }
+}
